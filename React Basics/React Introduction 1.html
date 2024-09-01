@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Introduction 1</title>
+  </head>
+  <style>
+    button{
+      height: 60px;
+      width: 200px;
+      border-radius: 40px;
+      margin-left: 10px;
+      font-size: x-large;
+      border: none;
+      background-color: #0492C2;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+      const rootElement = document.querySelector("#root");
+     
+      function Apps(){
+        return(
+            <>
+             <img style={{backGroundColor: "white",marginLeft: "42%"}} src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTi9z465tB8cqlVyR8wQPPzTOKwhXAVbVOsyt1Dl91nb7yUOnrf" alt=""/>
+             <h1 style={{fontfamily: "sans-serif", textAlign: "center"}}>SUBSCRIBE</h1>
+             <input style={{alignIeam: "center", textAlign: "center", height: "60px", width: "250px", borderRadius: "90px", border: "3px solid	skyblue", outline: "none", color: "skyblue", fontSize: "x-large",marginLeft:"25%"}} type="email" placeholder="john@doe.net" /><button>Subscribe</button>
+            </>
+        );
+      }
+
+      ReactDOM.createRoot(rootElement).render(<Apps />)
+    </script>
+  </body>
+</html>
