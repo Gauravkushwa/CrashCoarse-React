@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Introduction 2</title>
+  </head>
+  <style>
+    *{
+       margin: 4px;
+       padding: 0;
+       font-size: xx-large;
+    }
+    #cart{
+      height: 80px;
+      width: 100%;
+      display: flex;
+      background-color: black;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      cursor: pointer;
+      font-family: sans-serif;
+      font-weight: 200;
+    }
+    /* p, h1, h2{
+       font-size: xx-large;
+    } */
+    /* #container{
+        width: 50%;
+        height: 100vh;
+        margin-left: 25%;
+       border: 2px solid green;
+       padding: 0 10px;
+       
+    } */
+  </style>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+      const rootElement = document.querySelector("#root");
+     
+     function Apps(){
+       return(
+           <div id="container">
+            <img style={{backGroundColor: "white", fontSize: "60px", height: "100vh", width:"100%"}} src="https://c4.wallpaperflare.com/wallpaper/218/269/164/silver-black-watch-elegant-wallpaper-preview.jpg" />
+            <br/><br /><br/>
+            <h1 style={{fontfamily: "sans-serif"}}>Automatic Watch</h1>
+            <h2 style={{fontWeight: "200", fontfamily: "sans-serif"}}>$350.00 USD</h2>
+            <br/><br/>
+            <p style={{fontWeight: "200",fontSize: "40px" , fontfamily: "sans-serif", color: "#666362"}}>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+              tempor invidunt ut labore</p>
+            <br/><br/>
+            <p style={{fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio suscipit quia ipsam ut assumenda saepe fuga doloribus delectus iusto sit quo, eos labore rem officia minima, fugit ipsa 
+              aliquam. Ex quidem sapiente sed. At quibusdam dolorum nesciunt eius optio obcaecati quis, quam neque quidem eaque rem maxime nulla nobis dolore natus voluptas nisi quia reiciendis qui totam. Eaque, in ducimus?</p>
+            <br/><br/>
+            <p style={{fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#A0522D"}}>FEATURES</p>
+            <br/>
+            <p style={{display: "flex", fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B", justifyContent: "space-around"}}><span>chronograph</span><span>Anti-magice</span></p>
+            <p style={{display: "flex", fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B", justifyContent: "space-around"}}><span>Master Chronometer Certified</span><span>Chronometer</span></p>
+            <p style={{display: "flex", fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B", justifyContent: "space-around"}}><span>Tachymeter</span><span>Small seconds</span></p>
+           <br/>
+           <p style={{fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#A0522D"}}>PRODUCT DETAILS</p>
+           <br/>
+           <p style={{display: "flex", fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B",}}><bord style={{color:"#28231D", fontWeight:"900"}}>Between lugs</bord>: 20 mm</p>
+           <p style={{display: "flex", fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B",}}><bord style={{color:"#28231D", fontWeight:"900"}}>Bracelet</bord>: leather strap</p>
+           <p style={{display: "flex", fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B",}}><bord style={{color:"#28231D", fontWeight:"900"}}>Case</bord>: Steel</p>
+           <p style={{display: "flex", fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B",}}><bord style={{color:"#28231D", fontWeight:"900"}}>Case diameter</bord>: 42 mm</p>
+           <p style={{display: "flex", fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B",}}><bord style={{color:"#28231D", fontWeight:"900"}}>Dial color</bord>: Black</p>
+           <p style={{display: "flex", fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B",}}><bord style={{color:"#28231D", fontWeight:"900"}}>Crystal</bord>: Domed, scratch-resistant sapphire crystal with anti-reflective treatment inside</p>
+           <p style={{display: "flex", fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B",}}><bord style={{color:"#28231D", fontWeight:"900"}}>Water resistance</bord>: 5 bar (50 meters / 167 feet)</p>
+           <br/>
+           <div id="cart">ADD TO CART</div>
+          </div>
+       );
+     }
+
+     ReactDOM.createRoot(rootElement).render(<Apps />)
+    </script>
+  </body>
+</html>
