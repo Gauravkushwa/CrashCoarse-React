@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic List Rendering</title>
+</head>
+<style>
+    .Gallery{
+        display: grid;
+        gap: 5px;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 32% 32% 32%;
+    }
+    .Gallery img{
+       width: 100%;
+    }
+</style>
+<body>
+  <div id="root"></div>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your ItemList component code will go here
+    const ReactEle = document.querySelector("#root");
+
+    function Gallery({children}){
+       return(
+        <div className="Gallery">
+            {children} 
+        </div>
+    ); 
+    }
+
+    function App(){
+        return (
+            <Gallery>
+              <img src="https://static.vecteezy.com/system/resources/previews/026/722/501/non_2x/illustration-image-nature-and-sustainability-eco-friendly-living-and-conservation-concept-art-of-earth-and-animal-life-in-different-environments-generative-ai-illustration-free-photo.jpg" alt="" />
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO8AAxAr9ZNr9JCwn2QZ35rSWWuiayhh0ayQ&s" alt="" />
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGwVd07rcBUxKVqf17F_Li5fy-a_zni7JuEQ&s" alt="" />
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzJDx2rgz5O2J26_fzWpRxRIHyKbg_uOfsUQ&s" alt="" />
+              <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/130591/fronx-exterior-right-front-three-quarter-109.jpeg?isig=0&q=80" alt="" />
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjmB8xc6rKmOProJfZNcdZdT6iIZKaHcLiBA&s" alt="" />    
+            </Gallery>
+        );
+    }
+
+    ReactDOM.createRoot(ReactEle).render(<App />)
+  </script>
+</body>
+</html>
