@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Components in React</title>
+</head>
+<style>
+  #container{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .BranchCantainer{
+    text-align: center;
+    align-items: center;
+   justify-content: center;
+   margin: 10px;
+   width: 100%;
+  }
+</style>
+<body>
+  <div id="root"></div>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Write your code here
+    const ReactEle = document.querySelector("#root");
+
+    const Childern1 = () =>{
+        return(
+            <div className="BranchCantainer">
+             <div style={{height: "50px", marginLeft:"47%", borderRadius: "15px", textAlign: "center", justifyContent: "center",alignItems: "center",display: "flex", width: "50px", color: "green", backgroundColor: "#abf7b1",}}>01</div>
+             <h2 style={{fontWeight: "200",fontSize: "40px" , fontfamily: "sans-serif"}}>Find your template</h2>
+             <p style={{fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B"}}>Every template is embedded within an iframe, so you can easily check
+              what they look like and test the responsive behaviour.</p>
+             </div>
+        );
+    };
+
+    const Childern2 = () =>{
+      return(
+            <div className="BranchCantainer">
+             <div style={{height: "50px", marginLeft:"47%",borderRadius: "15px", textAlign: "center", justifyContent: "center",alignItems: "center",display: "flex", width: "50px", color: "green", backgroundColor: "#abf7b1",}}>02</div>
+             <h2 style={{fontWeight: "200",fontSize: "40px" , fontfamily: "sans-serif"}}>Copy the code</h2>
+             <p style={{fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B"}}>Click the code tab to see the actual source code of the template.
+              Copy and paste it into your project and adjust it to your needs.</p>
+             </div>
+        );
+    }
+
+    const Childern3 = () =>{
+      return(
+            <div className="BranchCantainer">
+             <div style={{height: "50px", marginLeft:"47%", borderRadius: "15px", textAlign: "center", justifyContent: "center",alignItems: "center",display: "flex", width: "50px", color: "green", backgroundColor: "#abf7b1",}}>03</div>
+             <h2 style={{fontWeight: "200",fontSize: "40px" , fontfamily: "sans-serif"}}>Enjoy your free time</h2>
+             <p style={{fontWeight: "200",fontSize: "30px" , fontfamily: "sans-serif", color: "#504A4B"}}>You've just saved yourself a bunch of time not building the same stuff over
+              and build business features</p>
+             </div>
+        );
+    }
+
+    function App(){
+        return(
+            <>
+             <h2 style={{ fontWeight: "800",fontSize: "50px" , fontfamily: "sans-serif", textAlign: "center"}}>Greeting Started in <span style={{color: "#9CFD9C"}}>3 easy steps</span></h2>
+             <div id="container">
+              <Childern1 />
+              <Childern2 />
+              <Childern3 />
+            </div>
+            </>
+        );
+    }
+
+    ReactDOM.createRoot(ReactEle).render(<App />)
+  </script>
+</body>
+</html>
