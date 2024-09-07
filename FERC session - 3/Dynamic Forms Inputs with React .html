@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your  code will go here
+    const ReactEle = document.querySelector("#root");
+
+    function App(){
+
+      const [hobby, setHobby] = React.useState("");
+      const [hobbies, setHobbies] = React.useState([]);
+
+      function handleHobby(e){
+        setHobby (e.target.value)
+      };
+
+      function handleHobbySubmit(e){
+        e.preventDefault();
+
+        if(hobby.trim()){
+          setHobbies([...hobbies, hobby]);
+          console.log([...hobbies, hobby]);
+          
+          setHobby("");
+          
+        }
+      }
+
+      function removeHobby(){
+        if(hobbies.length>0){
+          const UpdatedHobbies = hobbies.slice(0, -1);
+          setHobbies(UpdatedHobbies);
+          console.log(UpdatedHobbies);
+          
+        }
+      };
+
+       return (
+        <>
+        <form onSubmit={handleHobbySubmit}>
+         <label>Enter Your Hobby Here</label>
+         <input type="text"
+           placeholder="Enter Your Hobby"
+           value={hobby}
+           onChange={handleHobby}
+         />   
+         <br/>
+         <button type="submit">Add Hobby</button>
+         <button onClick={removeHobby}>Remove Hobby</button>
+        </form>
+        <h2>Display Your Hobby Here:</h2>
+        <ol>{hobbies.map((e, index) =>(
+          <li key={index}>{e}</li>
+        ))}</ol>
+        </>
+       );
+    }
+
+    ReactDOM.createRoot(ReactEle).render(<App />)
+  </script>
+</html>
