@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+    <style>
+      table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+thead {
+    background-color: #f2f2f2;
+}
+
+thead th {
+    padding: 12px 15px;
+    border-bottom: 2px solid #ddd;
+}
+
+tbody td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #4588c2;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+button {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 200px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+div {
+    margin: 10px 0;
+}
+tbody tr:nth-child(even) {
+    background-color: #be952d; 
+}
+tbody tr:nth-child(even):hover {
+    background-color: #97bfe1; 
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #51a9b9; 
+}
+tbody tr:nth-child(odd):hover{
+    background-color: #c4cccd; 
+}
+      
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your  code will go here
+
+    const ReactEle = document.querySelector("#root");
+ 
+    function Todos(){
+
+       const Todo = () =>{
+
+        const [name, setName] = React.useState("");
+        const [password, setPassword] = React.useState("");
+        const [todos, setTodos] = React.useState([]);
+        const [filter, setFilter] = React.useState("All");
+
+        const handleNameInput = (e) =>{
+            setName(e.target.value);
+        }
+        const handlePasswordInput = (e) =>{
+            setPassword(e.target.value);
+        }
+        const saveTodos = () => {
+            const obj = {
+                name,
+                password,
+                completed: false
+            }
+            setTodos((init) =>[...init, obj]);
+            
+        }
+        console.log(todos);
+
+        const removeTodo = () => {
+            const updatedTodos = todos.slice(0, -1);
+            setTodos(updatedTodos)
+            console.log(todos);
+        }
+
+        const toggleCompletion = (index) => {
+        const updatedTodos = todos.map((todo, i) =>
+            i === index ? { ...todo, completed: !todo.completed } : todo
+        );
+        setTodos(updatedTodos); 
+        };
+
+        const getFilteredTodos = () => {
+        if (filter === "Active") {
+            return todos.filter((todo) => !todo.completed);
+        } else if (filter === "Completed") {
+            return todos.filter((todo) => todo.completed);
+        }
+        return todos;
+        };
+
+            return (
+            <>
+             <input type="text"
+              placeholder="Enter your Name"
+              onChange={handleNameInput}
+              
+             /> <br/>
+             <input type="text"
+              placeholder="Enter your Password"
+              onChange={handlePasswordInput}
+              
+             /> <br/>
+             <button onClick={saveTodos}>Add Todo</button>
+                <button onClick={removeTodo}>Rremove Todo</button>
+            <div>
+                <button onClick={() => setFilter("All")}>All</button>
+                <button onClick={() => setFilter("Active")}>Active</button>
+                <button onClick={() => setFilter("Completed")}>Completed</button>
+            </div>
+            <table>
+            <thead>
+                        <th>S no</th>    
+                        <th>Name</th>
+                        <th>Password</th>
+                        <th>Status</th>
+                        <th>Set Status</th>
+                        <th>Remove Todo</th>
+                </thead>
+                {getFilteredTodos().map((todo, index) => (
+                <tbody>
+                <tr key={index}>
+                    <td>{index+1}</td>
+                   <td> {todo.name}</td> <td>{todo.password}</td>
+                  <td>{todo.completed ? "Completed" : "Active"}</td>
+                
+                <td><button onClick={() => toggleCompletion(index)}>
+                {todo.completed ? "Mark as Active" : "Mark as Completed"}
+                </button></td>
+               <td> <button onClick={() => removeTodo(index)}>Remove</button></td>
+                </tr>    
+              </tbody>    
+            
+            
+            ))}
+        </table>
+            </>
+       );
+        }
+
+
+
+        return (
+            <>
+             <Todo />
+            </>
+        );
+    }
+    
+    ReactDOM.createRoot(ReactEle).render(<Todos />)
+  </script>
+</html>
