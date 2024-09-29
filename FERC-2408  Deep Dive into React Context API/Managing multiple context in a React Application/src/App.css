@@ -1,0 +1,11 @@
+h1{
+  font-family: sans-serif;
+  font-weight: 300;
+}
+b{
+  font-style: italic;
+}
+.user{
+  height: 370px;
+  width: 345px;
+}
