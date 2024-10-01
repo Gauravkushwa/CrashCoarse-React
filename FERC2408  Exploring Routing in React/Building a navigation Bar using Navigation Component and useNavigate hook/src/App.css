@@ -1,0 +1,14 @@
+h1{
+  font-family: sans-serif;
+}
+nav{
+  display: flex;
+  justify-content: space-evenly;
+}
+button{
+  border: none;
+  color: rgb(17, 95, 126);
+  background-color: aliceblue;
+  padding: 5px 15px;
+  cursor: pointer;
+}
